@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Temp" content="Temp">
+    <link rel="stylesheet" href="Styles.css">
+    <title>temp</title>
+</head>
+<header>
+    <img class="jpeg" src="Images/72cff9_b82c9594a0614ac8bb3bc162fb4ef28f~mv2.jpeg.webp" alt="Feedback JPEG">
+    <nav>
+        <ul>
+            <li><a rel="Home" href="hollow.html">Home</a></li>
+            <li><a rel="Prints" href="prints.html">prints</a></li>
+            <li><a rel="about" href="about.html">About</a></li>
+            <li><a rel="contact" href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+</main>
+
+<footer>
+    <img src="Images/72cff9_6f045bea2d6940af82b73cfe5662c0de~mv2.gif" alt="Void Gif" class="jpeg">
+    <p>&copy; The Void, thevoidcsu@outlook.com <a href="feedback.html" class="button-link">Feedback</a>
+    <a href="login.html" class="button-link">Member Login</a> </p>
+</footer>
+</html>
+
+//
+HTML Listener script
+//
+
+<script>
+  document.getElementById('tracked-link').addEventListener('click', function() {
+    trackClick('tracked-link');
+  });
+
+  document.getElementById('tracked-image').addEventListener('click', function() {
+    trackClick('tracked-image');
+  });
+
+  function trackClick(elementId) {
+    // Increment click count
+    var element = document.getElementById(elementId);
+    var clickCount = parseInt(element.getAttribute('data-clicks'));
+    clickCount++;
+    element.setAttribute('data-clicks', clickCount);
+
+    // Send data to the server (AJAX request)
+    // You may want to use a library like jQuery or fetch for this.
+    // This is a simplified example.
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/track-click', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({ elementId: elementId, clickCount: clickCount }));
+  }
+</script>
+
